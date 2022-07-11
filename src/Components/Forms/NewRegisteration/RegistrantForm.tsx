@@ -36,7 +36,7 @@ const RegistrantForm: React.FC<Props> = ({ setFormType }) => {
         (state) => state.setInstituteRegistrant
     );
 
-    const [addInstituteAndRegistrant, status] = useMutation(
+    const [addInstituteAndRegistrant] = useMutation(
         REGISTER_NEW_INSTITUTE_AND_REGISTRANT
     );
 

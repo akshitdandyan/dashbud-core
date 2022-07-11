@@ -6,7 +6,6 @@ import {
     VerticalGridLines,
     HorizontalGridLines,
     VerticalBarSeries,
-    CircularGridLines,
 } from "react-vis";
 
 const data = [

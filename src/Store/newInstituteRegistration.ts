@@ -1,6 +1,4 @@
 import create from "zustand";
-import { Address } from "../types/common";
-import { Institute } from "../types/institution";
 import { ZustandNewInstituteRegistration } from "../types/Zustand/newInstitutionRegistration";
 
 export const useZustandNewInstituteRegistration =

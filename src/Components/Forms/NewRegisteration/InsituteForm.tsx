@@ -76,7 +76,7 @@ const InsituteForm: React.FC<Props> = ({ setFormType }) => {
         },
     });
 
-    const { errors, touched, setFieldValue, values } = formik;
+    const { errors, touched, setFieldValue } = formik;
 
     return (
         <Grid item>
