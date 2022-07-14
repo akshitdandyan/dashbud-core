@@ -24,3 +24,37 @@ export const ADD_NEW_STAFF_MEMBER = gql`
         }
     }
 `;
+
+export const UPDATE_INSTITUTE_DETAILS = gql`
+    mutation updateInstituteDetails(
+        $instituteName: String!
+        $state: String!
+        $city: String!
+        $zipcode: String!
+        $details: String!
+        $town: String
+        $village: String
+        $institutePhone: String!
+        $instituteLogoUrl: String!
+        $instituteTagline: String!
+    ) {
+        updateInstituteDetails(
+            institute: {
+                instituteName: $instituteName
+                instituteAddress: {
+                    state: $state
+                    city: $city
+                    zipcode: $zipcode
+                    details: $details
+                    town: $town
+                    village: $village
+                }
+                institutePhone: $institutePhone
+                instituteLogoUrl: $instituteLogoUrl
+                instituteTagline: $instituteTagline
+            }
+        ) {
+            message
+        }
+    }
+`;

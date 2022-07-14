@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar";
 import AddNewStaff from "../../Sections/AddNewStaff";
+import Settings from "../../Sections/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled, useTheme } from "@mui/material/styles";
@@ -72,7 +73,7 @@ const Dashboard: React.FC = () => {
                 <Routes>
                     <Route path="/" element={<div>Dashboard</div>} />
                     <Route path="/add-new-staff" element={<AddNewStaff />} />
-                    <Route path="/settings" element={<div>Settings</div>} />
+                    <Route path="/settings/*" element={<Settings />} />
                 </Routes>
             </Box>
         </Box>
