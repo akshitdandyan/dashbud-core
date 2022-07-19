@@ -12,7 +12,7 @@ import AddNewStaff from "../../Sections/AddNewStaff";
 import Settings from "../../Sections/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
@@ -38,7 +38,6 @@ const AppBar = styled(MuiAppBar, {
 const Dashboard: React.FC = () => {
     const [openSideBar, setOpenSideBar] = useState<boolean>(false);
 
-    const theme = useTheme();
     const handleSidebarToggle = () => {
         setOpenSideBar((s) => !s);
     };

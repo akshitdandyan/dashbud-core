@@ -12,3 +12,21 @@ export const LOGIN_USER = gql`
         }
     }
 `;
+
+export const VERIFY_INVITATION = gql`
+    query verifyInvitation($verificationToken: String!) {
+        verifyInvitation(verificationToken: $verificationToken) {
+            institute {
+                instituteName
+                instituteLogoUrl
+                instituteTagline
+            }
+            user {
+                firstname
+                phone
+                email
+                role
+            }
+        }
+    }
+`;
