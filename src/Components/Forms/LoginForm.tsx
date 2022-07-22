@@ -1,3 +1,4 @@
+import { useLazyQuery, useMutation, useQuery } from "@apollo/client";
 import { Google, Sms, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
@@ -8,25 +9,42 @@ import {
   TextField,
 } from "@mui/material";
 import { useFormik, Form, FormikProvider } from "formik";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../Components/Media/Logo";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { useState } from "react";
+import { LOGIN_USER } from "../../GraphQL/Queries/user";
 
 const LoginForm = () => {
+  const theme = useTheme();
+  let isSm = useMediaQuery(theme.breakpoints.down("sm"));
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const [loginUser, { loading, data, error, called }] =
+    useLazyQuery(LOGIN_USER);
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      identifier: "",
       password: "",
     },
     onSubmit: async (formData) => {
-      console.log("formData:", formData);
+      const a = await loginUser({
+        variables: {
+          identifier: formData.identifier,
+          password: formData.password,
+        },
+      });
+      console.log(a);
+      if (a?.data?.loginUser?.jwtToken) {
+        localStorage.setItem("userToken", a.data.loginUser.jwtToken);
+        navigate("/dashboard");
+      }
     },
   });
-  const theme = useTheme();
-  let isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { errors, touched, handleSubmit, getFieldProps } = formik;
   return (
@@ -59,9 +77,12 @@ const LoginForm = () => {
                 type="email"
                 label="Email address"
                 {...getFieldProps("email")}
-                error={Boolean(touched.email && errors.email)}
-                helperText={touched.email && errors.email}
                 sx={{ width: { xs: "300px", sm: "400px" } }}
+                error={Boolean(touched.identifier && errors.identifier)}
+                helperText={touched.identifier && errors.identifier}
+                onChange={formik.handleChange}
+                name="identifier"
+                id="identifier"
               />
               <TextField
                 style={{ borderRadius: "24px" }}
@@ -70,6 +91,11 @@ const LoginForm = () => {
                 type={showPassword ? "text" : "password"}
                 label="Password"
                 {...getFieldProps("password")}
+                error={Boolean(touched.password && errors.password)}
+                helperText={touched.password && errors.password}
+                onChange={formik.handleChange}
+                name="password"
+                id="password"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -82,8 +108,6 @@ const LoginForm = () => {
                     </InputAdornment>
                   ),
                 }}
-                error={Boolean(touched.password && errors.password)}
-                helperText={touched.password && errors.password}
               />
               <Button
                 variant="contained"

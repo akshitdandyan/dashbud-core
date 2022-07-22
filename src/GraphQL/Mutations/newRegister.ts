@@ -51,23 +51,3 @@ export const REGISTER_NEW_INSTITUTE_AND_REGISTRANT = gql`
         }
     }
 `;
-
-export const SEND_OTP_TO_REGISTRANT_PHONE = gql`
-    mutation verifyPhone(
-        $instituteId: String!
-        $registrantId: String!
-        $phone: String!
-        $type: String!
-        $otp: String!
-    ) {
-        verifyPhone(
-            instituteId: $instituteId
-            registrantId: $registrantId
-            phone: $phone
-            type: $type
-            otp: $otp
-        ) {
-            message
-        }
-    }
-`;

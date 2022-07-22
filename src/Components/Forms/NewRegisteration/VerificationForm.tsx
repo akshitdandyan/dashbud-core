@@ -16,10 +16,10 @@ import * as Yup from "yup";
 import { useZustandNewInstituteRegistration } from "../../../Store/newInstituteRegistration";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { SEND_OTP_TO_REGISTRANT_PHONE } from "../../../GraphQL/Mutations/newRegister";
 import { LoadingButton } from "@mui/lab";
 import { ThumbUp } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { SEND_OTP_TO_USER_PHONE } from "../../../GraphQL/Mutations/user";
 
 type Props = {
     setFormType: (step: NewInstituteFormStep) => void;
@@ -45,7 +45,7 @@ const VerificationForm: React.FC<Props> = ({ setFormType }) => {
     const data = useZustandNewInstituteRegistration();
 
     const [sendOtpToRegistrantPhone, status] = useMutation(
-        SEND_OTP_TO_REGISTRANT_PHONE
+        SEND_OTP_TO_USER_PHONE
     );
 
     const updatedMobileNumberFormSchema = Yup.object().shape({
