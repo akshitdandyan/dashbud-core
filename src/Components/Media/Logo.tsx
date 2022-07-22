@@ -62,7 +62,12 @@ const Logo: React.FC<Props> = ({
       )}
       {showText && (
         <>
-          <Typography variant="h6">{title}</Typography>
+          <Typography
+            variant="h6"
+            sx={{ fontSize: { xs: "15px", sm: "20px" } }}
+          >
+            {title}
+          </Typography>
           <Typography variant="subtitle2">{tagline}</Typography>
         </>
       )}

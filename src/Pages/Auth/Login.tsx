@@ -1,6 +1,21 @@
-import { colors, Grid } from "@mui/material";
+import { colors, Grid, Box } from "@mui/material";
 import LoginForm from "../../Components/Forms/LoginForm";
 import AuthPageIllustration from "../../Components/Media/AuthPageIllustration";
+
+import { styled } from "@mui/system";
+
+const FlexBox = styled(Box)({
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+});
+
+const FlexItem = styled(Box)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  // border: "1px solid red",
+});
 
 const Login: React.FC = () => {
   return (
@@ -9,27 +24,21 @@ const Login: React.FC = () => {
       style={{
         height: "100vh",
         width: "100vw",
+        overflowY: "scroll",
         position: "fixed",
         top: 0,
         left: 0,
         background: colors.blue[500],
       }}
     >
-      <Grid
-        container
-        className="midbox"
-        style={{
-          background: colors.blue[50],
-          width: "max-content",
-        }}
-      >
-        <Grid item>
+      <FlexBox>
+        <FlexItem sx={{ background: colors.blue[50] }}>
           <AuthPageIllustration />
-        </Grid>
-        <Grid item>
+        </FlexItem>
+        <FlexItem>
           <LoginForm />
-        </Grid>
-      </Grid>
+        </FlexItem>
+      </FlexBox>
     </div>
   );
 };
