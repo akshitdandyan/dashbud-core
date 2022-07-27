@@ -77,7 +77,7 @@ const LoginForm = () => {
                 type="email"
                 label="Email address"
                 {...getFieldProps("email")}
-                sx={{ width: { xs: "300px", sm: "400px" } }}
+                sx={{ width: { xs: "350px", sm: "400px" } }}
                 error={Boolean(touched.identifier && errors.identifier)}
                 helperText={touched.identifier && errors.identifier}
                 onChange={formik.handleChange}
@@ -86,7 +86,7 @@ const LoginForm = () => {
               />
               <TextField
                 style={{ borderRadius: "24px" }}
-                sx={{ width: { xs: "300px", sm: "400px" } }}
+                sx={{ width: { xs: "350px", sm: "400px" } }}
                 autoComplete="current-password"
                 type={showPassword ? "text" : "password"}
                 label="Password"
@@ -112,7 +112,8 @@ const LoginForm = () => {
               <Button
                 variant="contained"
                 disableElevation
-                sx={{ width: { xs: "300px", sm: "400px" } }}
+                sx={{ width: { xs: "350px", sm: "400px" } }}
+                onClick={() => formik.handleSubmit}
               >
                 Login
               </Button>
@@ -124,7 +125,7 @@ const LoginForm = () => {
             endIcon={<Google />}
             variant="outlined"
             color="info"
-            sx={{ width: { xs: "300px", sm: "400px" } }}
+            sx={{ width: { xs: "350px", sm: "400px" } }}
           >
             Login with Google
           </Button>
@@ -132,7 +133,7 @@ const LoginForm = () => {
             endIcon={<Sms />}
             variant="outlined"
             color="info"
-            sx={{ width: { xs: "300px", sm: "400px" } }}
+            sx={{ width: { xs: "350px", sm: "400px" } }}
           >
             Login with OTP
           </Button>

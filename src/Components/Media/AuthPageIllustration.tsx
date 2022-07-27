@@ -4,17 +4,16 @@ import { Box } from "@mui/material";
 const Container = styled(Box)(({ theme }) => ({
   height: "500px",
   width: "700px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   [theme.breakpoints.down("lg")]: {
     height: "300px",
     width: "480px",
   },
   [theme.breakpoints.down("sm")]: {
-    height: "250px",
-    width: "350px",
+    display: "none",
   },
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
 }));
 
 const AuthPageIllustration: React.FC = (props: any) => {
