@@ -17,11 +17,13 @@ export const VERIFY_INVITATION = gql`
     query verifyInvitation($verificationToken: String!) {
         verifyInvitation(verificationToken: $verificationToken) {
             institute {
+                _id
                 instituteName
                 instituteLogoUrl
                 instituteTagline
             }
             user {
+                _id
                 firstname
                 phone
                 email

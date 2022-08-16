@@ -9,14 +9,8 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useFormik } from "formik";
-import { NewInstituteFormStep } from "../../../types/forms";
-import { InstituteRegistrant } from "../../../types/institution";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowBackwardIcon from "@mui/icons-material/ArrowBack";
 import { Box, Container } from "@mui/system";
-import { useZustandNewInstituteRegistration } from "../../../Store/newInstituteRegistration";
 import { useMutation } from "@apollo/client";
-import { REGISTER_NEW_INSTITUTE_AND_REGISTRANT } from "../../../GraphQL/Mutations/newRegister";
 import * as Yup from "yup";
 import { User } from "../../../types/user";
 import { ADD_NEW_STAFF_MEMBER } from "../../../GraphQL/Mutations/adminActions";

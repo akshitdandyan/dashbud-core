@@ -67,7 +67,7 @@ const VerificationForm: React.FC<Props> = ({ setFormType }) => {
             sendOtpToRegistrantPhone({
                 variables: {
                     instituteId: data.institute.id,
-                    registrantId: data.instituteRegistrant.id,
+                    userId: data.instituteRegistrant.id,
                     phone: values.updatedMobileNumber,
                     type: "sendOtp",
                     otp: "null",
@@ -97,7 +97,7 @@ const VerificationForm: React.FC<Props> = ({ setFormType }) => {
             const { data: graphData, errors } = await sendOtpToRegistrantPhone({
                 variables: {
                     instituteId: data.institute.id,
-                    registrantId: data.instituteRegistrant.id,
+                    userId: data.instituteRegistrant.id,
                     phone: data.instituteRegistrant.phone,
                     type: "verifyOtp",
                     otp: values.phoneOtp,
