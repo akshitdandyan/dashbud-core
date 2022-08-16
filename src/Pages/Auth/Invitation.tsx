@@ -19,7 +19,7 @@ const Invitation: React.FC = () => {
     const [showOtpVerificationForm, setShowOtpVerificationForm] =
         useState(false);
     const [showNewPasswordForm, setShowNewPasswordForm] = useState(false);
-    const [sendOtpToUserPhone, status] = useMutation(SEND_OTP_TO_USER_PHONE);
+    const [sendOtpToUserPhone] = useMutation(SEND_OTP_TO_USER_PHONE);
 
     useEffect(() => {
         verifyInvitation({ variables: { verificationToken } });

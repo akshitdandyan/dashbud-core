@@ -1,15 +1,12 @@
 import { useMutation } from "@apollo/client";
 import { useFormik } from "formik";
-import { useState } from "react";
 import { SEND_OTP_TO_USER_PHONE } from "../../GraphQL/Mutations/user";
 import * as Yup from "yup";
 import { TextField, Typography } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
 const NewPasswordForm: React.FC = () => {
-    const [setUserNewPassword, { loading, data, error }] = useMutation(
-        SEND_OTP_TO_USER_PHONE
-    );
+    const [setUserNewPassword] = useMutation(SEND_OTP_TO_USER_PHONE);
 
     const newPasswordFormSchema = Yup.object().shape({
         newPassword: Yup.string().required("Choose a valid password"),

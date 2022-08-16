@@ -21,10 +21,10 @@ const OtpVerificationForm: React.FC<Props> = ({
     instituteId,
     userId,
 }) => {
-    const [verifyOtpButtonColor, setVerifyOtpButtonColor] = useState<
-        "primary" | "success"
-    >("primary");
-    const [sendOtpToUserPhone, { loading, data, error }] = useMutation(
+    const [, setVerifyOtpButtonColor] = useState<"primary" | "success">(
+        "primary"
+    );
+    const [sendOtpToUserPhone, { loading }] = useMutation(
         SEND_OTP_TO_USER_PHONE
     );
 
